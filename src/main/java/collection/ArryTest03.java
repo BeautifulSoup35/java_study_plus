@@ -3,6 +3,7 @@ package collection;
 import org.example.Main;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /*
     현재까지 배운 대부분의 Java 클래스
@@ -40,22 +41,23 @@ public class ArryTest03 {
         double a= Math.random();// 0.0초과 1.0미만의 난수 생성
         System.out.println(a);
 
-        int [] numbers = new int[10];
+       Integer [] numbers = new Integer[10];
 
         for(int i =0; i < numbers.length; i++){
             numbers[i] = (int )(Math.random() * 10);
-
+//            numbers[i] = (int )(Math.random() * 10)+1;
+//          강사님 버전에는 +1이 추가로 들어갔다 왜일까 일단 랜덤 돌릴때 1은 나옴 그럼 최소가 2가 되지 않나
         }
-
+        System.out.println(Arrays.toString(numbers));
         System.out.println("크기 : " + numbers.length);
         System.out.print("짝수 합: ");
         for(int i =0; i < numbers.length; i++) {
-            if (numbers[i] / 2 == 0) {
+            if (numbers[i] % 2 == 0) {
                 num += numbers[i];
             }
         }
         System.out.println(num);
 
-        Arrays.toString(numbers);
+        Arrays.sort(numbers, Comparator.reverseOrder());
     }
 }
